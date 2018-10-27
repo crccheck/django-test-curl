@@ -1,6 +1,8 @@
 Django test curl
 ================
 
+[![Build Status](https://travis-ci.org/crccheck/django-test-curl.svg?branch=master)](https://travis-ci.org/crccheck/django-test-curl)
+
 Django's [testing tools] come with a test client you can use to simulate
 requests against your views. If you ever want to do real-world requests, you'll
 probably use [curl]. If you want to use the same syntax to do both, this is the
@@ -45,6 +47,12 @@ from django_test_curl import CurlClientMixin
 class MyClient(CurlClientMixin, Client):
     ...
 ```
+
+We support a subset of curl's functionality. See the tests for examples.
+
+* Headers
+* GET/POST/PUT/DELETE/etc
+* HTTP basic auth
 
 
 [curl]: https://curl.haxx.se/
