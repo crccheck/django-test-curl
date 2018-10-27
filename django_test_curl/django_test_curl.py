@@ -1,5 +1,7 @@
 import argparse
+import base64
 import shlex
+from urllib.parse import urlparse
 
 from django.http import HttpResponse
 from django.test import Client as BaseClient
@@ -40,7 +42,8 @@ class Client(BaseClient):
             kwargs['HTTP_AUTHORIZATION'] = f'Basic {hashcode.decode("utf8")}'
 
         header_items = [x.split(':', 2) for x in opts.header or []]
-        headers = {'HTTP_' + k.strip().upper().replace('-', '_'): v.strip() for k, v in header_items}
+        headers = {'HTTP_' + k.strip().upper().replace('-', '_'): v.strip()
+                   for k, v in header_items}
         if 'HTTP_CONTENT_TYPE' in headers:
             kwargs['content_type'] = headers.pop('HTTP_CONTENT_TYPE')
 
