@@ -6,8 +6,7 @@ authors = ["crccheck <oss@crccheck.com>"]
 license = "Apache-2.0"
 readme = "README.md"
 
-homepage = "https://github.com/crccheck/django-test-curl"
-repository = "git@github.com:crccheck/django-test-curl.git"
+repository = "https://github.com/crccheck/django-test-curl"
 
 keywords = ["django", "curl", "tests"]
 classifiers = [
