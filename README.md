@@ -9,21 +9,21 @@ against an actual server via the magic of copy-paste!
 Django's [testing tools] come with a great [test client] you can use to
 simulate requests against views. Against deployed Django projects, if you want
 to do simple requests, you would probably use [curl]. If you want to use the
-same syntax to do both, this is the package for you.
+same syntax for both, this is the package for you.
 
 ### Good places to use this
 
-This was developed to TDD recreating an existing API. If you have a library of
-curl requests that you need to replicate, this is perfect for that. If you need
-a portable format to turn test cases into QA automation, this is great for
-that.
+This was developed to TDD recreating an existing API in Django. If you have a
+library of [curl] requests that you need to replicate, this is perfect for
+that. If you need a portable format to turn test cases into QA automation, this
+is great for that too.
 
 ### Bad places to use this
 
-If the `curl` syntax requires lots of string formatting, you should stick to
-the traditional [test client]. If the test case isn't copy-pastable, it's not a
-good fit. This also means if you use randomness to generate your requests,
-you'll lose that extra test coverage.
+If the `.curl(...)` syntax requires lots of string formatting, you should stick
+to the traditional [test client]. If the test case isn't copy-pastable, it's
+not a good fit. This also means if you use randomness to generate your
+requests, you'll lose that extra test coverage.
 
 
 Installation
