@@ -16,7 +16,7 @@ curl_parser.add_argument('-H', '--header', action='append')
 curl_parser.add_argument('-d', '--data')
 
 
-class Client(BaseClient):
+class CurlClientMixin:
     def curl(self, cmd: str) -> HttpResponse:
         """
         Use curl syntax to do a test client request
@@ -51,3 +51,7 @@ class Client(BaseClient):
             kwargs['data'] = opts.data
 
         return getattr(self, opts.request)(url.path, **headers, **kwargs)
+
+
+class CurlClient(CurlClientMixin, BaseClient):
+    pass

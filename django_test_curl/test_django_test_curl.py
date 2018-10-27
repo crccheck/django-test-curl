@@ -1,14 +1,14 @@
 import unittest
 from unittest.mock import patch
 
-from .django_test_curl import Client
+from .django_test_curl import CurlClient
 
 
 class CurlTests(unittest.TestCase):
     def setUp(self):
-        self.client = Client()
+        self.client = CurlClient()
 
-    @patch.object(Client, 'get')
+    @patch.object(CurlClient, 'get')
     def test_curl_extracts_url(self, mock_req):
         self.client.curl(
             """
@@ -17,7 +17,7 @@ class CurlTests(unittest.TestCase):
         )
         mock_req.assert_called_once_with('/api/v1/poop/')
 
-    @patch.object(Client, 'head')
+    @patch.object(CurlClient, 'head')
     def test_curl_sees_head_implies_head(self, mock_req):
         self.client.curl(
             """
@@ -26,7 +26,7 @@ class CurlTests(unittest.TestCase):
         )
         mock_req.assert_called_once_with('/neck-topper')
 
-    @patch.object(Client, 'post')
+    @patch.object(CurlClient, 'post')
     def test_curl_sees_data_implies_post(self, mock_req):
         self.client.curl(
             """
@@ -37,7 +37,7 @@ class CurlTests(unittest.TestCase):
         )
         mock_req.assert_called_once()
 
-    @patch.object(Client, 'post')
+    @patch.object(CurlClient, 'post')
     def test_curl_converts_content_type(self, mock_req):
         self.client.curl(
             """
@@ -52,7 +52,7 @@ class CurlTests(unittest.TestCase):
         self.assertEqual(kwargs['content_type'], 'application/json')
         self.assertTrue(kwargs['data'])
 
-    @patch.object(Client, 'get')
+    @patch.object(CurlClient, 'get')
     def test_curl_converts_auth(self, mock_req):
         self.client.curl(
             """
