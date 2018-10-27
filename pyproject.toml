@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "django-test-curl"
+version = "0.1.0"
+description = "Write Django test requests using curl syntax"
+authors = ["crccheck <oss@crccheck.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+homepage = "https://github.com/crccheck/django-test-curl"
+repository = "git@github.com:crccheck/django-test-curl.git"
+
+keywords = ["django", "curl", "tests"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Framework :: Django",
+  "Topic :: Software Development :: Testing",
+]
+
+[tool.poetry.dependencies]
+python = "^3.5"
+
+[tool.poetry.dev-dependencies]
+django = "^2.1"
+flake8 = "^3.6"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

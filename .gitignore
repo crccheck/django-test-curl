@@ -1,0 +1,5 @@
+# We only have dev dependencies, and don't mind a little breakage
+poetry.lock
+
+# Build artifacts
+dist/
