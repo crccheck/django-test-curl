@@ -3,10 +3,27 @@ Django test curl
 
 [![Build Status](https://travis-ci.org/crccheck/django-test-curl.svg?branch=master)](https://travis-ci.org/crccheck/django-test-curl)
 
-Django's [testing tools] come with a test client you can use to simulate
-requests against your views. If you ever want to do real-world requests, you'll
-probably use [curl]. If you want to use the same syntax to do both, this is the
-package for you.
+With _Django test curl_, you can take your test cases and immediately try them
+against an actual server via the magic of copy-paste!
+
+Django's [testing tools] come with a great [test client] you can use to
+simulate requests against views. Against deployed Django projects, if you want
+to do simple requests, you would probably use [curl]. If you want to use the
+same syntax to do both, this is the package for you.
+
+### Good places to use this
+
+This was developed to TDD recreating an existing API. If you have a library of
+curl requests that you need to replicate, this is perfect for that. If you need
+a portable format to turn test cases into QA automation, this is great for
+that.
+
+### Bad places to use this
+
+If the `curl` syntax requires lots of string formatting, you should stick to
+the traditional [test client]. If the test case isn't copy-pastable, it's not a
+good fit. This also means if you use randomness to generate your requests,
+you'll lose that extra test coverage.
 
 
 Installation
@@ -48,7 +65,8 @@ class MyClient(CurlClientMixin, Client):
     ...
 ```
 
-We support a subset of curl's functionality. See the tests for examples.
+We support a subset of curl's functionality. For a full list and examples, see
+the [tests](./django_test_curl/test_django_test_curl.py).
 
 * Headers
 * GET/POST/PUT/DELETE/etc
@@ -56,4 +74,5 @@ We support a subset of curl's functionality. See the tests for examples.
 
 
 [curl]: https://curl.haxx.se/
+[test client]: https://docs.djangoproject.com/en/stable/topics/testing/tools/#the-test-client
 [testing tools]: https://docs.djangoproject.com/en/stable/topics/testing/tools/
