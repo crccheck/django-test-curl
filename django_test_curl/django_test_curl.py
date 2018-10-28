@@ -20,6 +20,16 @@ class CurlClientMixin:
     def curl(self, cmd: str) -> HttpResponse:
         """
         Use curl syntax to do a test client request
+
+        Parameters
+        ----------
+        cmd
+            The full curl command, including ``curl``. The scheme and host
+            don't matter.
+
+        Returns
+        -------
+        HttpResponse
         """
         curl_cmd, *args = shlex.split(cmd)
         assert curl_cmd == 'curl'
