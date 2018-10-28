@@ -57,7 +57,7 @@ class SimpleTest(TestCase):
 
 If you're using a custom `Client`, you can use the mixin version:
 
-```
+```python
 from django.test import Client
 from django_test_curl import CurlClientMixin
 
