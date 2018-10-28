@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from .django_test_curl import CurlClient
+from . import CurlClient
 
 
 class CurlTests(unittest.TestCase):
