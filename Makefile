@@ -11,7 +11,6 @@ lint: ## Check for lint errors
 # 2. run `make publish`
 # 3. git commit -am "0.0.0"
 # 4. git tag "v0.0.0"
-# 5. git push origin master
 # 5. git push origin master --tags
 publish: ## Publish to PyPI
 	[ "$$(git rev-parse --abbrev-ref HEAD)" == "master" ]
