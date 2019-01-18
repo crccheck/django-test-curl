@@ -47,6 +47,11 @@ class CurlClientMixin:
 
         kwargs = {}
 
+        path = url.path
+
+        if url.query:
+            path = f'{path}?{url.query}'
+
         if url.username and url.password:
             hashcode = base64.b64encode(f'{url.username}:{url.password}'.encode('utf-8'))
             kwargs['HTTP_AUTHORIZATION'] = f'Basic {hashcode.decode("utf8")}'
@@ -60,7 +65,7 @@ class CurlClientMixin:
         if opts.data:
             kwargs['data'] = opts.data
 
-        return getattr(self, opts.request)(url.path, **headers, **kwargs)
+        return getattr(self, opts.request)(path, **headers, **kwargs)
 
 
 class CurlClient(CurlClientMixin, BaseClient):
