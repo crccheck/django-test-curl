@@ -17,6 +17,24 @@ class CurlTests(unittest.TestCase):
         )
         mock_req.assert_called_once_with('/api/v1/poop/')
 
+    @patch.object(CurlClient, 'get')
+    def test_curl_extracts_single_quoted_url(self, mock_req):
+        self.client.curl(
+            """
+            curl 'http://localhost:8000/api/v1/poop/'
+            """
+        )
+        mock_req.assert_called_once_with('/api/v1/poop/')
+
+    @patch.object(CurlClient, 'get')
+    def test_curl_extracts_quoted_url(self, mock_req):
+        self.client.curl(
+            """
+            curl "http://localhost:8000/api/v1/poop/"
+            """
+        )
+        mock_req.assert_called_once_with('/api/v1/poop/')
+
     @patch.object(CurlClient, 'head')
     def test_curl_sees_head_implies_head(self, mock_req):
         self.client.curl(
