@@ -2,9 +2,13 @@ name: Release
 
 on:
   workflow_dispatch:
+  # push:
+  #   branches:
+  #     - master
 
 jobs:
   release:
+    if: ${{ github.ref == 'refs/head/master' }}
     runs-on: ubuntu-latest
     environment: release
     steps:
