@@ -18,4 +18,5 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
+      - run: pip install Django
       - run: make test
