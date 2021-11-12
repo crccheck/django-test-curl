@@ -20,4 +20,4 @@ jobs:
         uses: relekang/python-semantic-release@v7.19.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # pypi_token: ${{ secrets.PYPI_TOKEN }}
+          pypi_token: ${{ secrets.PYPI_TOKEN }}
