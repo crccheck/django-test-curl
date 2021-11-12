@@ -1,7 +1,6 @@
-Django test curl
-================
+# Django test curl
 
-[![Build Status](https://travis-ci.org/crccheck/django-test-curl.svg?branch=master)](https://travis-ci.org/crccheck/django-test-curl)
+[![CI](https://github.com/crccheck/django-test-curl/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/crccheck/django-test-curl/actions/workflows/ci.yml?query=branch%3Amaster)
 
 With _Django test curl_, you can take your test cases and immediately try them
 against an actual server via the magic of copy-paste!
@@ -25,17 +24,13 @@ to the traditional [test client]. If the test case isn't copy-pastable, it's
 not a good fit. This also means if you use randomness to generate your
 requests, you'll lose that extra test coverage.
 
-
-Installation
-------------
+## Installation
 
 ```sh
 $ pip install django-test-curl
 ```
 
-
-Usage
------
+## Usage
 
 ```python
 from django_test_curl import CurlClient
@@ -68,10 +63,9 @@ class MyClient(CurlClientMixin, Client):
 We support a subset of curl's functionality. For a full list and examples, see
 the [tests](./django_test_curl/test_django_test_curl.py).
 
-* Headers
-* GET/POST/PUT/DELETE/etc
-* HTTP basic auth
-
+- Headers
+- GET/POST/PUT/DELETE/etc
+- HTTP basic auth
 
 [curl]: https://curl.haxx.se/
 [test client]: https://docs.djangoproject.com/en/stable/topics/testing/tools/#the-test-client
