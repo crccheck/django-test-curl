@@ -27,3 +27,9 @@ black = "^21.5b0"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.semantic_release]
+branch = "master"
+version_toml = "pyproject.toml:tool.poetry.version"
+version_variable = "django_test_curl/__init__.py:__version__"
+build_command = "pip install poetry && poetry build"
