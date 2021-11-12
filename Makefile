@@ -15,12 +15,3 @@ lint: ## Check for lint problems
 	poetry run flake8 .
 	poetry run mypy .
 
-# 1. bump version in pyproject.toml
-# 2. run `make publish`
-# 3. git commit -am "0.0.0"
-# 4. git tag "v0.0.0"
-# 5. git push origin master --tags
-publish: ## Publish to PyPI
-	[ "$$(git rev-parse --abbrev-ref HEAD)" == "master" ]
-	git pull
-	poetry publish --build
