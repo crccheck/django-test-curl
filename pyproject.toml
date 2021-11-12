@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-test-curl"
-version = "0.1.2"
+version = "0.2.0"
 description = "Write Django test requests using curl syntax"
 authors = ["crccheck <oss@crccheck.com>"]
 license = "Apache-2.0"
